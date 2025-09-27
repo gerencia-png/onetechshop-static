@@ -5,108 +5,265 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ONE Tech Shop — Integrador AV</title>
   <meta name="description" content="Integrador de sistemas audiovisuales de alta especialidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body{margin:0;font-family:ui-sans-serif,-apple-system,Segoe UI,Roboto,Inter,Arial;color:#111;background:#fff}
-    header{position:sticky;top:0;z-index:10;background:#fff9;border-bottom:1px solid #ddd;backdrop-filter:blur(6px)}
-    .container{max-width:1100px;margin:auto;padding:0 16px}
-    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
-    a.btn,button.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;
-      border:1px solid #ddd;background:#fff;border-radius:12px;cursor:pointer;text-decoration:none;color:#111}
-    section{padding:64px 0}
-    h1{font-size:40px;line-height:1.2;margin:12px 0}
-    h2{font-size:28px;margin:0 0 12px}
-    .badge{display:inline-block;padding:4px 10px;border:1px solid #ddd;border-radius:999px;font-size:12px;background:#f3f3f3;color:#444}
-    .card{border:1px solid #ddd;border-radius:16px;background:#fff;margin-bottom:16px}
-    .card .hd{padding:16px;font-weight:600}
-    .card .bd{padding:16px;font-size:14px;color:#444}
-    footer{background:#111;color:#ccc;padding:32px 0;font-size:14px}
-    .floating{position:fixed;right:20px;bottom:20px}
-    input,textarea{width:100%;padding:10px;border:1px solid #ccc;border-radius:8px}
+    :root{
+      --brand:#6d4cff;      /* acento morado del logo */
+      --fg:#0b0b0b;         /* texto */
+      --muted:#6b7280;      /* texto secundario */
+      --border:#e5e7eb;     /* bordes suaves */
+      --chip:#f3f4f6;       /* badges */
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial;color:var(--fg);background:#fff}
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;z-index:10;background:#ffffffcc;border-bottom:1px solid var(--border);backdrop-filter:saturate(160%) blur(6px)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:32px}
+    .brand small{color:var(--muted)}
+    a.btn,button.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border:1px solid var(--border);background:#fff;border-radius:999px;cursor:pointer;text-decoration:none;color:var(--fg)}
+    a.btn.primary,button.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+    section{padding:72px 0}
+    .hero{background:linear-gradient(135deg,#fafafa, #ffffff)}
+    h1{font-size:40px;line-height:1.15;margin:10px 0 0}
+    @media(min-width:1024px){h1{font-size:54px}}
+    h2{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);max-width:640px}
+    .badge{display:inline-flex;padding:4px 10px;border-radius:999px;border:1px solid var(--border);background:var(--chip);font-size:12px;color:#374151}
+    .grid{display:grid;gap:16px}
+    @media(min-width:768px){.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+    .card{border:1px solid var(--border);border-radius:var(--radius);background:#fff}
+    .card .hd{padding:18px 22px 0;font-weight:600}
+    .card .bd{padding:12px 22px 22px;color:#374151}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{margin:8px 0}
+    .muted{color:var(--muted)}
+    footer{background:#0b0b0b;color:#d1d5db}
+    .floating{position:fixed;right:18px;bottom:18px}
+    input,textarea{width:100%;padding:10px 12px;border:1px solid #d1d5db;border-radius:12px;font-size:14px;outline:none}
+    input:focus,textarea:focus{border-color:#9ca3af;box-shadow:0 0 0 4px #eee}
   </style>
 </head>
 <body>
-<header>
-  <div class="container nav">
-    <div style="display:flex;align-items:center;gap:12px">
-      <img src="https://i.ibb.co/SQpbt0t/onetechshop-logo.png" alt="ONE Tech Shop" style="height:32px">
-      <div style="font-size:12px;color:#555">Integrador AV de alta especialidad</div>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <!-- Tu logo: sube logo.png a la raíz del repo -->
+        <img src="/logo.png" alt="ONE Tech Shop">
+        <small>Integrador AV de alta especialidad</small>
+      </div>
+      <a class="btn" href="#contacto">Chatea con un ingeniero</a>
     </div>
-    <a href="#contacto" class="btn">Chatea con un ingeniero</a>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="container">
-    <span class="badge">Integrador AV</span>
-    <h1>Integración audiovisual para túneles, salas de control y LED walls</h1>
-    <p style="color:#555;max-width:600px">
-      Integramos los sistemas de las marcas mas reconocidas de la industria AV, Contando con un equipo de ingenieria robusto.
-      La Gestion de proyectos es impecable: Entrega por hitos, KPIs y SLAs claros.
-    </p>
-  </div>
-</section>
-
-<section id="servicios">
-  <div class="container">
-    <h2>Servicios y soluciones</h2>
-    <div class="card"><div class="hd">PAVA para túneles</div><div class="bd">Modelación acústica, equipos certificados, integración ITS.</div></div>
-    <div class="card"><div class="hd">Salas de control</div><div class="bd">Videowalls, audio DSP, redundancia operativa.</div></div>
-    <div class="card"><div class="hd">LED walls y DOOH</div><div class="bd">Indoor/outdoor, estructuras, CMS data-driven.</div></div>
-    <div class="card"><div class="hd">Salas de reuniones</div><div class="bd">Audio, cámaras auto-tracking, room booking.</div></div>
-  </div>
-</section>
-
-<section id="contacto">
-  <div class="container">
-    <h2>¿Listos para su proyecto?</h2>
-    <form id="leadForm">
-      <label>Nombre</label>
-      <input id="name" required placeholder="Tu nombre">
-      <label>Email</label>
-      <input id="email" type="email" required placeholder="tu@empresa.com">
-      <label>Mensaje</label>
-      <textarea id="message" rows="4" placeholder="Cuéntanos tu necesidad"></textarea>
-      <br>
-      <button class="btn" type="submit">Chatea con un ingeniero</button>
-      <p style="font-size:12px;color:#666">Se abrirá WhatsApp o WhatsApp Web y se enviará copia al correo del area comercial</p>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div>www.onetechshop.co</div>
-    <div>Bogotá | Cra. 78 #17-57, Oficina 613, Edificio Meridiano 13</div>
-    <div>+57 317 502 1483 · Lun–Vie 8:00–18:00 (GMT-5)</div>
-    <div style="margin-top:8px;font-size:12px;color:#888">
-      © <span id="y"></span> ONE Tech Shop — Todos los derechos reservados.
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Integrador AV</span>
+      <h1>Integración audiovisual para túneles, salas de control y LED walls</h1>
+      <p class="lead">
+        Integramos los sistemas de las marcas líderes de la Indistria Audiovisual, Contamos con un area de ingenieria robusto con gestion de proyectos impecables:
+        Entrega por hitos, KPIs y SLAs claros.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">
+        <a class="btn primary" href="#servicios">Ver portafolio</a>
+        <a class="btn" href="#metodo">Nuestro método</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<a id="waFloat" class="btn floating" href="#">Chatea con un ingeniero</a>
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <h2>Servicios y soluciones</h2>
+      <p class="muted">Ingeniería, suministro, instalación y comisionamiento con soporte postventa.</p>
 
-<script>
-document.getElementById('y').textContent=new Date().getFullYear();
-function openWhatsApp(text){
-  var phone="573113857784";
-  var isMobile=/Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
-  var url=isMobile? "https://wa.me/"+phone+"?text="+encodeURIComponent(text)
-    :"https://web.whatsapp.com/send?phone="+phone+"&text="+encodeURIComponent(text);
-  window.open(url,"_blank");
-}
-function sendMailCopy(text){
-  var mailto="mailto:kareneliana@gmail.com?subject=Contacto%20ONE%20Tech%20Shop&body="+encodeURIComponent(text);
-  window.open(mailto,"_blank");
-}
-document.getElementById('leadForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  var text="Hola, soy "+name.value+". Mi correo es "+email.value+".\nMensaje: "+message.value;
-  openWhatsApp(text); sendMailCopy(text);
-});
-document.getElementById('waFloat').addEventListener('click',function(e){
-  e.preventDefault(); openWhatsApp("Hola, me gustaría hablar con un ingeniero de ONE Tech Shop.");
-});
-</script>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card">
+          <div class="hd">PAVA para túneles y grandes espacios</div>
+          <div class="bd">
+            <ul class="list">
+              <li>Modelación acústica y predicción de STI</li>
+              <li>Equipos certificados y pruebas end-to-end</li>
+              <li>Integración con ITS y SCADA</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd">Salas de control y monitoreo</div>
+          <div class="bd">
+            <ul class="list">
+              <li>Video walls LED/LCD y procesadores</li>
+              <li>Audio DSP, microfonía, UC y BYOD</li>
+              <li>Redundancia y continuidad operativa</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd">LED walls y DOOH</div>
+          <div class="bd">
+            <ul class="list">
+              <li>LED indoor/outdoor y estructuras</li>
+              <li>Procesamiento, control y calibración</li>
+              <li>CMS de cartelería y data-driven</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd">Salas de reuniones</div>
+          <div class="bd">
+            <ul class="list">
+              <li>Audio, cámaras auto-tracking, controles</li>
+              <li>Room booking, señalización y SoC</li>
+              <li>Interoperabilidad con Teams/Zoom</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd">Integraciones y desarrollo</div>
+          <div class="bd">
+            <ul class="list">
+              <li>APIs, drivers y automatización</li>
+              <li>Dashboards y KPIs operativos</li>
+              <li>Soporte y laboratorio (vía D&amp;I)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd">Soporte postventa</div>
+          <div class="bd">
+            <ul class="list">
+              <li>SLAs, mantenimientos y repuestos</li>
+              <li>Capacitación y documentación</li>
+              <li>Mesa de ayuda 8×5 o 24×7</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÉTODO -->
+  <section id="metodo" style="background:#fafafa;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <h2>Nuestro método</h2>
+      <div class="grid cols-2" style="margin-top:18px">
+        <div class="card"><div class="bd"><span class="badge">Paso 1</span> <strong>Levantamiento y alcance</strong><br><span class="muted">KPIs y entregables claros.</span></div></div>
+        <div class="card"><div class="bd"><span class="badge">Paso 2</span> <strong>Ingeniería y diseño</strong><br><span class="muted">Planos, listas de materiales.</span></div></div>
+        <div class="card"><div class="bd"><span class="badge">Paso 3</span> <strong>Instalación y pruebas</strong><br><span class="muted">Protocolos y actas.</span></div></div>
+        <div class="card"><div class="bd"><span class="badge">Paso 4</span> <strong>Comisionamiento y soporte</strong><br><span class="muted">Manual y SLAs.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS -->
+  <section id="casos">
+    <div class="container">
+      <h2>Casos de éxito</h2>
+      <p class="muted">Disponibles bajo NDA. Solicítanos referencias verificables.</p>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card"><div class="bd"><strong>Túneles (PAVA)</strong><br><span class="muted">Integración y pruebas de desempeño.</span></div></div>
+        <div class="card"><div class="bd"><strong>Energía y control rooms</strong><br><span class="muted">Videowall y continuidad operativa.</span></div></div>
+        <div class="card"><div class="bd"><strong>Retail y DOOH</strong><br><span class="muted">Cartelería y data-driven.</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" style="background:linear-gradient(135deg,#fafafa,#fff);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="container">
+      <h2>¿Listos para su proyecto?</h2>
+      <p class="muted">Cotizamos, diseñamos e instalamos con KPIs y SLAs medibles.</p>
+      <div class="grid cols-2" style="margin-top:18px">
+        <div>
+          <ul class="list">
+            <li>• Entrega por hitos y facturación parcial</li>
+            <li>• Cumplimiento normativo (EN54, NFPA, IEC, RETIE)</li>
+            <li>• Soporte postventa y repuestos a través de D&amp;I</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="hd">Chatea con un ingeniero</div>
+          <div class="bd">
+            <form id="leadForm">
+              <label>Nombre</label>
+              <input id="name" required placeholder="Tu nombre">
+              <div style="height:10px"></div>
+              <label>Email</label>
+              <input id="email" type="email" required placeholder="tu@empresa.com">
+              <div style="height:10px"></div>
+              <label>Mensaje</label>
+              <textarea id="message" rows="4" placeholder="Cuéntanos brevemente tu necesidad"></textarea>
+              <div style="height:12px"></div>
+              <button class="btn primary" type="submit" style="width:100%">Chatea con un ingeniero</button>
+              <p class="muted" style="font-size:12px;margin-top:6px">Se abrirá WhatsApp o WhatsApp Web y se enviará copia por correo al area encargada</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="grid cols-3">
+        <div>
+          <img src="/logo.png" alt="ONE Tech Shop" style="height:28px">
+          <p class="muted" style="margin-top:6px">Integrador de sistemas audiovisuales para proyectos críticos y corporativos.</p>
+        </div>
+        <div class="muted">
+          www.onetechshop.co<br>
+          Bogotá | Cra. 78 #17-57, Oficina 613, Edificio Meridiano 13
+        </div>
+        <div class="muted">
+          +57 317 502 1483<br>
+          Lun–Vie 8:00–18:00 (GMT-5)
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:12px;font-size:12px;color:#9ca3af">© <span id="y"></span> ONE Tech Shop — Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante -->
+  <a class="btn floating" id="waFloat" href="#" rel="noreferrer">Chatea con un ingeniero</a>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    function openWhatsApp(text){
+      var phone = "573113857784";
+      var isMobile = /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+      var url = isMobile
+        ? "https://wa.me/" + phone + "?text=" + encodeURIComponent(text)
+        : "https://web.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(text);
+      window.open(url, "_blank");
+    }
+    function sendMailCopy(text){
+      var mailto = "mailto:kareneliana@gmail.com?subject=Contacto%20ONE%20Tech%20Shop&body=" + encodeURIComponent(text);
+      window.open(mailto, "_blank");
+    }
+    document.getElementById('leadForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      var text = "Hola, soy " + name.value + ". Mi correo es " + email.value + ".\nMensaje: " + message.value;
+      openWhatsApp(text);
+      sendMailCopy(text);
+    });
+    document.getElementById('waFloat').addEventListener('click', function(e){
+      e.preventDefault();
+      openWhatsApp("Hola, me gustaría hablar con un ingeniero de ONE Tech Shop.");
+    });
+  </script>
 </body>
 </html>
